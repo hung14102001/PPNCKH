@@ -14,8 +14,8 @@ Chuyển đổi hình ảnh khuôn mặt từ 2D sang mô hình 3D bao gồm c�
 - Sử dụng hình ảnh được đưa lên để chuyển sang mô hình 3D và gửi lại người dùng
 
 ## tiến độ
-- tên dự án, mục đích của dự án, ảnh kiến trúc tổng thể 50%
-- yêu cầu về môi trường, hệ điều hành, phần cứng tối thiểu 35%
+- tên dự án, mục đích của dự án, ảnh kiến trúc tổng thể 80%
+- yêu cầu về môi trường, hệ điều hành, phần cứng tối thiểu 85%
 - cách cài đặt môi trường và thư viện 70%
 - cách build và chạy dự án 30 %
 - cách chạy unit-test 0%
@@ -23,26 +23,34 @@ Chuyển đổi hình ảnh khuôn mặt từ 2D sang mô hình 3D bao gồm c�
 
 
 ## Yêu cầu về môi trường, hệ điều hành phần cứng tối thiểu 
+
+### Phần cứng tối thiểu
+- GPU của Nvidia 
+
+  Dùng lệnh sau đây trên Terminal để kiểm tra 
+```bash 
+nvidia-smi
+```
+- Ram tối thiểu 8GB
+- CPU 4 nhân 8 luồng, bus từ 2GHz trở lên 
+### Hệ điều hành
+- Dự án chạy được trên Ubuntu 20.04
+- Đối với Windows có thể sử dụng máy ảo [VMware](https://download.com.vn/vmware-workstation-8587) hoặc [Oracle VM VirtualBox](https://www.virtualbox.org/)
+
 ### Môi trường
-* Python 3.7 (numpy, skimage, scipy, opencv)  
-* PyTorch >= 1.6 (pytorch3d)  
-* face-alignment
-* Mediapipe 
+* [Python 3.7](https://www.python.org/downloads/) trở lên (numpy, skimage, scipy, opencv)  
 * Các thư viện khác có trong file [requirements.txt](requirements.txt)
   
   Cách cài đặt
   ```bash
   pip install -r requirements.txt
   ```
-  Or use virtual environment by runing 
+  Sử dụng lệnh sau nếu dùng máy ảo 
   ```bash
   bash install_conda.sh
   ```
-### Hệ điều hành
-- Dự án chạy được trên Ubuntu 20.04
-- Đối với Windows có thể sử dụng máy ảo VMware hoặc Oracle VM VirtualBox
-### Phần cứng tối thiểu
-- GPU của Nvidia
+
+
 
 ## Cách chạy Demo
 Tải repository:
@@ -65,7 +73,16 @@ Chuyển đổi biểu cảm
 ## Cách chạy unit test
 
 ## Các lỗi hay gặp
-- Cài ubuntu (main Asus)
-- Phần cứng không đủ yêu cầu (mua thêm phần cứng :D)
-- Cài drive nvidia trên ubuntu( main Asus)
-- ngày tàn
+- Cài ubuntu khi chế độ SATA operation là RAID on thì không cài được Ubuntu.
+
+  Cách khắc phục:
+
+  Khi máy khởi động vào trong bios sang System configuration, SATA operation chuyển sang chế độ AHCI. Tham khảo thêm [tại đây](https://www.youtube.com/watch?v=wDrCaAdGuMk).
+- Cài drive nvidia trên ubuntu có thể bị lỗi
+
+  Cách khắc phục:
+
+  Tắt chế độ khởi động an toàn ( Disable Secure Boot Mode) trong BIOS. Tham khảo thêm [tại đây](https://www.youtube.com/watch?v=brXcxmdWU9Q)
+- Thiếu bộ nhớ
+
+
